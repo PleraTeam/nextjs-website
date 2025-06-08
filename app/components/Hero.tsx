@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
-import styles from './Hero.module.css';
+import { useEffect, useRef } from "react";
+import styles from "./Hero.module.css";
+import HeroGridOverlay from "./HeroGridOverlay";
 
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -23,41 +24,46 @@ export default function Hero() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload='auto'
         >
-          <source src="/Plera_Homepage_Landing_Video.mp4" type="video/mp4" />
+          <source src='/Plera_Homepage_Landing_Video.mp4' type='video/mp4' />
           {/* Fallback for browsers that don't support video */}
         </video>
         <div className={styles.videoOverlay}></div>
       </div>
 
-      {/* Content Grid */}
-      <div className={styles.contentGrid}>
-        {/* Top Text Overlays */}
-        <div className={styles.topTextLeft}>
-          <span className={`${styles.overlayText} body-base`}>We don't predict the future</span>
-        </div>
-        <div className={styles.topTextRight}>
-          <span className={`${styles.overlayText} body-base`}>We build it for you</span>
-        </div>
+      {/* Grid Overlay for Border Structure */}
+      <HeroGridOverlay />
 
-        {/* Main Content */}
-        <div className={styles.mainContent}>
-          {/* Left Side - Headline */}
-          <div className={styles.headlineSection}>
+      {/* Top Section - 50% height */}
+      <div className={styles.topSection}>
+        <div className={styles.topContainer}>
+          <div className={styles.topContent}>
+            <span className={`${styles.overlayText} body-base`}>
+              We don't predict the future
+            </span>
+            <span className={`${styles.overlayText} body-base`}>
+              We build it for you
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Section - 50% height */}
+      <div className={styles.bottomSection}>
+        <div className={styles.bottomContainer}>
+          <div className={styles.bottomContent}>
             <h1 className={`${styles.headline} headline-hero`}>
               AI-powered automation for every business decision
             </h1>
-          </div>
-
-          {/* Right Side - CTA Buttons */}
-          <div className={styles.ctaSection}>
-            <button className={`${styles.primaryCta} button-text`}>
-              Check if you qualify
-            </button>
-            <button className={`${styles.secondaryCta} button-text`}>
-              See how it works
-            </button>
+            <div className={styles.ctaSection}>
+              <button className={`${styles.primaryCta} button-text`}>
+                Check if you qualify
+              </button>
+              <button className={`${styles.secondaryCta} button-text`}>
+                See how it works
+              </button>
+            </div>
           </div>
         </div>
       </div>

@@ -1,123 +1,136 @@
 /* Navigation Header */
 .header {
-  width: 100%;
-  background-color: #1a1a1a;
-  border-bottom: 1px solid #333;
-  position: sticky;
-  top: 0;
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 100;
+  width: calc(100% - 40px);
+  max-width: 1200px;
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 0.2rem 1rem;
+  border-radius: 6px;
+  transition: none; /* GSAP will handle all transitions */
+  -webkit-backdrop-filter: blur(
+    20px
+  ); /* Keep webkit prefix for Safari support */
 }
 
 /* Logo Section */
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
 }
 
-.logoIcon {
-  color: #ffffff;
+.logoLink {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background-color: #333;
-  border-radius: 6px;
+  transition: opacity 0.2s ease;
 }
 
-.logoText {
-  font-family: var(--font-primary);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #ffffff;
-  text-decoration: none;
-  letter-spacing: -0.025em;
-  transition: color 0.2s ease;
+.logoLink:hover {
+  opacity: 0.8;
 }
 
-.logoText:hover {
-  color: #e5e5e5;
+.logoImage {
+  height: auto;
+  width: auto;
+  max-height: 21px;
+  color: inherit; /* Allow GSAP to control the color */
 }
 
 /* Navigation Links */
 .navLinks {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 10rem;
 }
 
-.navLink {
+.navLink,
+.menuButton {
   font-family: var(--font-secondary);
-  color: #d4d4d4;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 1rem;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  transition: all 0.2s ease;
+  padding: 0.5rem;
+  transition: 0.2s ease;
   position: relative;
 }
 
-.navLink:hover {
-  color: #ffffff;
-  background-color: #333;
+.menuButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
 }
 
-.navLink:focus {
-  outline: 2px solid #666;
+.navLink:hover,
+.menuButton:hover {
+  opacity: 50%;
+}
+
+.navLink:focus,
+.menuButton:focus {
+  outline: 1px solid rgba(255, 255, 255, 0.5);
   outline-offset: 2px;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .nav {
-    padding: 1rem 1.5rem;
+  .header {
+    top: 15px;
+    width: calc(100% - 30px);
   }
-  
+
+  .nav {
+    padding: 0.875rem 1.5rem;
+    border-radius: 14px;
+  }
+
   .navLinks {
     gap: 1rem;
   }
-  
-  .navLink {
+
+  .navLink,
+  .menuButton {
     padding: 0.5rem 0.75rem;
     font-size: 0.9rem;
+    border-radius: 6px;
   }
-  
-  .logoText {
-    font-size: 1.25rem;
+
+  .logoImage {
+    max-height: 21px;
   }
 }
 
 @media (max-width: 480px) {
+  .header {
+    top: 10px;
+    width: calc(100% - 20px);
+  }
+
   .nav {
     padding: 0.75rem 1rem;
+    border-radius: 12px;
   }
-  
-  .logo {
-    gap: 0.5rem;
+
+  .logoImage {
+    max-height: 21px;
   }
-  
-  .logoIcon {
-    width: 28px;
-    height: 28px;
-  }
-  
+
   .navLinks {
     gap: 0.75rem;
   }
-  
-  .navLink {
+
+  .navLink,
+  .menuButton {
     padding: 0.4rem 0.6rem;
     font-size: 0.85rem;
+    border-radius: 6px;
   }
 }
