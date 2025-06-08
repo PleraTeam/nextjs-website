@@ -122,7 +122,7 @@ textarea {
 .headline-section {
   font-family: var(--font-primary);
   font-size: var(--text-4xl);
-  font-weight: var(--font-semibold);
+  font-weight: var(--font-normal);
   line-height: var(--leading-tight);
   letter-spacing: -0.03em;
 }
@@ -131,7 +131,7 @@ textarea {
 .headline-subsection {
   font-family: var(--font-primary);
   font-size: var(--text-3xl);
-  font-weight: var(--font-semibold);
+  font-weight: var(--font-normal);
   line-height: var(--leading-snug);
   letter-spacing: -0.03em;
 }
