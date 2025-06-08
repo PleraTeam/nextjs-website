@@ -1,0 +1,221 @@
+/* Global Reach Section */
+.section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 6rem 0;
+  position: relative;
+}
+
+/* 12-Column Grid Container */
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Section Title */
+.sectionTitle {
+  grid-column: 1 / 13;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: 1.2;
+  color: #555555;
+  text-align: left;
+  margin: 0 0 3rem 0;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Map Wrapper */
+.mapWrapper {
+  grid-column: 1 / 13;
+  position: relative;
+  height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background-color: #0e1626;
+}
+
+/* Map Container */
+.mapContainer {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  transition: opacity 0.3s ease;
+}
+
+.mapContainer.hidden {
+  opacity: 0;
+}
+
+/* Loading State */
+.loadingState {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #0e1626;
+  color: #8ec3b9;
+  z-index: 2;
+}
+
+.loadingState p {
+  margin: 1rem 0 0 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Loading Spinner */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(142, 195, 185, 0.3);
+  border-top: 3px solid #8ec3b9;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error State */
+.errorState {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #0e1626;
+  color: #ff6b6b;
+  text-align: center;
+  z-index: 2;
+  padding: 2rem;
+}
+
+.errorState p {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.retryButton {
+  background-color: #8ec3b9;
+  color: #0e1626;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.retryButton:hover {
+  background-color: #7bb3a8;
+}
+
+.retryButton:focus {
+  outline: 2px solid #8ec3b9;
+  outline-offset: 2px;
+}
+
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .mapWrapper {
+    height: 450px;
+  }
+  
+  .section {
+    padding: 5rem 0;
+  }
+  
+  .sectionTitle {
+    margin: 0 0 2.5rem 0;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+  
+  .mapWrapper {
+    height: 350px;
+    border-radius: 8px;
+  }
+  
+  .mapContainer {
+    border-radius: 8px;
+  }
+  
+  .section {
+    padding: 4rem 0;
+  }
+  
+  .sectionTitle {
+    margin: 0 0 2rem 0;
+  }
+  
+  .errorState {
+    padding: 1.5rem;
+  }
+  
+  .errorState p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  .mapWrapper {
+    height: 300px;
+    border-radius: 6px;
+  }
+  
+  .mapContainer {
+    border-radius: 6px;
+  }
+  
+  .section {
+    padding: 3rem 0;
+  }
+  
+  .retryButton {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Performance Optimization */
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+  }
+  
+  .mapContainer {
+    transition: none;
+  }
+}

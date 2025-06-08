@@ -1,0 +1,280 @@
+/* Call to Action Section */
+.section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 6rem 0;
+  position: relative;
+}
+
+/* 12-Column Grid Container */
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Headline Section */
+.headlineSection {
+  grid-column: 1 / 13;
+  margin-bottom: 3rem;
+}
+
+.mainHeadline {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: 1.2;
+  color: #555555;
+  text-align: left;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.subHeadline {
+  font-size: clamp(1.25rem, 3vw, 1.875rem);
+  line-height: 1.3;
+  color: #777777;
+  text-align: left;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Cards Container */
+.cardsContainer {
+  grid-column: 1 / 13;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+/* Individual CTA Cards */
+.ctaCard {
+  border-radius: 16px;
+  padding: 3rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+}
+
+.ctaCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark Card Styling */
+.darkCard {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.darkCard:hover {
+  background-color: #1a1a1a;
+}
+
+/* Light Card Styling */
+.lightCard {
+  background-color: rgba(170, 136, 170, 0.5);
+  color: #333333;
+}
+
+.lightCard:hover {
+  background-color: rgba(170, 136, 170, 0.6);
+}
+
+/* Card Content */
+.cardContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Card Description */
+.cardDescription {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 400;
+}
+
+.darkCard .cardDescription {
+  color: #e5e5e5;
+}
+
+.lightCard .cardDescription {
+  color: #444444;
+}
+
+/* CTA Buttons */
+.ctaButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+/* Dark Button Styling */
+.darkButton {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.darkButton:hover {
+  background-color: #f0f0f0;
+  transform: translateX(4px);
+}
+
+/* Light Button Styling */
+.lightButton {
+  background-color: #ffffff;
+  color: #333333;
+  border: 2px solid rgba(170, 136, 170, 0.3);
+}
+
+.lightButton:hover {
+  background-color: #f8f8f8;
+  border-color: rgba(170, 136, 170, 0.5);
+  transform: translateX(4px);
+}
+
+/* Arrow Icon */
+.arrow {
+  font-size: 1.2em;
+  transition: transform 0.3s ease;
+  margin-left: 1rem;
+}
+
+.ctaButton:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .ctaCard {
+    padding: 2.5rem;
+    min-height: 260px;
+  }
+  
+  .section {
+    padding: 5rem 0;
+  }
+  
+  .headlineSection {
+    margin-bottom: 2.5rem;
+  }
+  
+  .cardsContainer {
+    gap: 1.5rem;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+  
+  .cardsContainer {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .ctaCard {
+    padding: 2rem;
+    min-height: 220px;
+  }
+  
+  .section {
+    padding: 4rem 0;
+  }
+  
+  .headlineSection {
+    margin-bottom: 2rem;
+  }
+  
+  .cardContent {
+    gap: 1.5rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  .ctaCard {
+    padding: 1.5rem;
+    min-height: 200px;
+  }
+  
+  .section {
+    padding: 3rem 0;
+  }
+  
+  .ctaButton {
+    padding: 0.875rem 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .arrow {
+    margin-left: 0;
+    align-self: flex-end;
+  }
+}
+
+/* Performance Optimization */
+@media (prefers-reduced-motion: reduce) {
+  .ctaCard,
+  .ctaButton,
+  .arrow {
+    transition: none;
+  }
+  
+  .ctaCard:hover,
+  .ctaButton:hover,
+  .ctaButton:hover .arrow {
+    transform: none;
+  }
+}
+
+/* Focus states for accessibility */
+.ctaButton:focus {
+  outline: 3px solid rgba(170, 136, 170, 0.8);
+  outline-offset: 2px;
+}
+
+.darkButton:focus {
+  outline-color: #ffffff;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .lightCard {
+    background-color: rgba(170, 136, 170, 0.8);
+  }
+  
+  .lightButton {
+    border-width: 3px;
+  }
+}

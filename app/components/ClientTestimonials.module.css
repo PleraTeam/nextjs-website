@@ -1,0 +1,246 @@
+/* Client Testimonials Section */
+.section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 12-Column Grid Container */
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Section Title */
+.sectionTitle {
+  grid-column: 1 / 13;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: 1.2;
+  color: #555555;
+  text-align: left;
+  margin: 0 0 3rem 0;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Carousel Container */
+.carouselContainer {
+  grid-column: 1 / 13;
+  position: relative;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.carouselContainer:active {
+  cursor: grabbing;
+}
+
+/* Carousel Track */
+.carousel {
+  display: flex;
+  width: 200%; /* For infinite scroll - doubled width */
+  transition: none;
+}
+
+.mobileCarousel {
+  width: 100%;
+}
+
+/* Individual Testimonial Cards */
+.testimonialCard {
+  flex: 0 0 25%; /* 4 cards visible on desktop */
+  padding: 0 0.75rem;
+  box-sizing: border-box;
+}
+
+/* Card Content */
+.cardContent {
+  background-color: rgba(85, 85, 85, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(85, 85, 85, 0.05);
+}
+
+.testimonialCard:hover .cardContent {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  background-color: rgba(85, 85, 85, 0.15);
+}
+
+/* Industry Label */
+.industry {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #888888;
+  margin-bottom: 1rem;
+}
+
+/* Quote Text */
+.quote {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.6;
+  color: #444444;
+  margin: 0;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Mobile Dots Container */
+.dotsContainer {
+  grid-column: 1 / 13;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(85, 85, 85, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot:hover {
+  background-color: rgba(85, 85, 85, 0.5);
+}
+
+.activeDot {
+  background-color: #555555;
+  transform: scale(1.2);
+}
+
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .testimonialCard {
+    flex: 0 0 33.333%; /* 3 cards visible on tablet */
+  }
+  
+  .section {
+    padding: 5rem 0;
+  }
+  
+  .sectionTitle {
+    margin: 0 0 2.5rem 0;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+  
+  .carouselContainer {
+    overflow: visible;
+    cursor: default;
+  }
+  
+  .carousel {
+    width: 400%; /* 4 cards for mobile */
+  }
+  
+  .testimonialCard {
+    flex: 0 0 100%; /* 1 card visible on mobile */
+    padding: 0 0.5rem;
+  }
+  
+  .cardContent {
+    padding: 1.5rem;
+    height: 180px;
+  }
+  
+  .section {
+    padding: 4rem 0;
+  }
+  
+  .sectionTitle {
+    margin: 0 0 2rem 0;
+  }
+  
+  .dotsContainer {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  .cardContent {
+    padding: 1.25rem;
+    height: 160px;
+  }
+  
+  .section {
+    padding: 3rem 0;
+  }
+  
+  .quote {
+    font-size: 0.9rem;
+  }
+  
+  .industry {
+    font-size: 0.7rem;
+  }
+}
+
+/* Performance Optimization */
+@media (prefers-reduced-motion: reduce) {
+  .carousel {
+    transition: none !important;
+  }
+  
+  .cardContent {
+    transition: none;
+  }
+  
+  .testimonialCard:hover .cardContent {
+    transform: none;
+  }
+  
+  .dot {
+    transition: none;
+  }
+}
+
+/* Focus states for accessibility */
+.dot:focus {
+  outline: 2px solid #555555;
+  outline-offset: 2px;
+}
+
+/* Touch-friendly improvements */
+@media (pointer: coarse) {
+  .dot {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .dotsContainer {
+    gap: 0.75rem;
+  }
+}
